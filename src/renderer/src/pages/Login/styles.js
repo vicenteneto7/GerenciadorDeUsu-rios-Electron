@@ -69,3 +69,17 @@ export const SignInLogin = styled.p`
 
   color: #ffffff;
 `
+
+export const TextLink = styled.p`
+  color: #8257e6;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+  &:active {
+    opacity: 0.7;
+  }
+`

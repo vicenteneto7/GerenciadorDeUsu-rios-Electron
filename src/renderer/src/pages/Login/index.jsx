@@ -7,6 +7,7 @@ import {
   InputText,
   Label,
   SignInLogin,
+  TextLink,
   TitleText
 } from './styles'
 
@@ -92,11 +93,8 @@ export function Login() {
           </Form>
           <Container4>
             <SignInLogin style={{ color: '#C6C6C7' }}>Não possui conta?</SignInLogin>
-            <Link
-              to="/cadastrar-usuario"
-              style={{ cursor: 'pointer', textDecoration: 'none', color: '#8257e6' }}
-            >
-              Criar conta
+            <Link to="/cadastrar-usuario">
+              <TextLink>Inscreva-se</TextLink>
             </Link>
           </Container4>
         </Container3>
