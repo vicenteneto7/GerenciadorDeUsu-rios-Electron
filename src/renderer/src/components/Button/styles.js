@@ -10,10 +10,9 @@ export const ContainerButton = styled.button`
   text-decoration: none;
   border: none;
 
-  font-size: 1.6rem;
-  line-height: 19px;
+  font-size: 1.4rem;
   text-align: center;
-  font-weight: 200;
+  font-weight: 100;
   
   &:hover {
     opacity: 0.8;

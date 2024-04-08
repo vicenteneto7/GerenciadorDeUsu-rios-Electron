@@ -5,6 +5,7 @@ import {
   Container4,
   Form,
   InputText,
+  Label,
   SignInLogin,
   TitleText
 } from './styles'
@@ -64,10 +65,10 @@ export function Login() {
   return (
     <Container1>
       <Container2>
-        <TitleText>Entrar</TitleText>
+        <TitleText>Login</TitleText>
         <Container3>
           <Form noValidate onSubmit={handleSubmit(onSubmit)}>
-            <label>Email</label>
+            <Label>E-mail</Label>
             <InputText
               {...register('email', { required: true })}
               error={errors.email?.message}
@@ -76,7 +77,7 @@ export function Login() {
             />
             <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-            <label>Senha</label>
+            <Label>Senha</Label>
             <InputText
               {...register('password', { required: true })}
               error={errors.password?.message}
@@ -86,7 +87,7 @@ export function Login() {
             <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
             <Button style={{ marginTop: '1.7rem' }} type="submit">
-              Login
+              Entrar
             </Button>
           </Form>
           <Container4>

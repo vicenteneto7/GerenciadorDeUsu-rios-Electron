@@ -34,6 +34,15 @@ export const TitleText = styled.p`
   text-align: center;
   font-weight: 500;
 `
+export const Label = styled.p`
+  margin-top: 1.6rem;
+  margin-bottom: 0.3rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  color: #ffffff;
+`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
