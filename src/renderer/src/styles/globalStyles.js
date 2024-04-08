@@ -15,6 +15,8 @@ export default createGlobalStyle`
     list-style: none;
     text-decoration: none;
     outline: none;
+
+    font-family: "Roboto", sans-serif;
 }
 
 body {

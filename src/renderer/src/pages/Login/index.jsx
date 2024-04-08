@@ -1,4 +1,13 @@
-import { Container1, Container2, Container3, ErroP, Form, InputText, Title } from './styles'
+import {
+  Container1,
+  Container2,
+  Container3,
+  Container4,
+  Form,
+  InputText,
+  SignInLogin,
+  TitleText
+} from './styles'
 
 import { Button } from '../../components/Button/index.jsx'
 
@@ -14,6 +23,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { ApiCI4 } from '../../services/api'
 import { Link } from 'react-router-dom'
+import { ErrorMessage } from '../../components/ErrorMenssage/index.jsx'
 
 export function Login() {
   const { putUserData } = useUser()
@@ -54,25 +64,40 @@ export function Login() {
   return (
     <Container1>
       <Container2>
-        <Title>Entrar</Title>
+        <TitleText>Entrar</TitleText>
         <Container3>
           <Form noValidate onSubmit={handleSubmit(onSubmit)}>
             <label>Email</label>
-            <InputText {...register('email')} type="email" />
-            <ErroP>{errors.email?.message}</ErroP>
+            <InputText
+              {...register('email', { required: true })}
+              error={errors.email?.message}
+              placeholder="Digite o seu e-mail"
+              type="email"
+            />
+            <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
             <label>Senha</label>
-            <InputText {...register('password')} type="password" />
-            <ErroP>{errors.password?.message}</ErroP>
+            <InputText
+              {...register('password', { required: true })}
+              error={errors.password?.message}
+              placeholder="Digite a sua senha"
+              type="password"
+            />
+            <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-            <Button type="submit">Login</Button>
+            <Button style={{ marginTop: '1.7rem' }} type="submit">
+              Login
+            </Button>
           </Form>
-          <p style={{ color: 'white' }}>
-            Não possui conta?
-            <Link to="/cadastrar-usuario" style={{ cursor: 'pointer' }}>
-              crie sua conta
+          <Container4>
+            <SignInLogin style={{ color: '#C6C6C7' }}>Não possui conta?</SignInLogin>
+            <Link
+              to="/cadastrar-usuario"
+              style={{ cursor: 'pointer', textDecoration: 'none', color: '#8257e6' }}
+            >
+              Criar conta
             </Link>
-          </p>
+          </Container4>
         </Container3>
       </Container2>
     </Container1>
