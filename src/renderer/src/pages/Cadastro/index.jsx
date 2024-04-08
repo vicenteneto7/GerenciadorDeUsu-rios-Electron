@@ -11,7 +11,9 @@ import {
   TitleText
 } from './styles'
 
-import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
+
+import { useForm, useNavigate } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -21,6 +23,8 @@ import { Button } from '../../components/Button'
 import { ErrorMessage } from '../../components/ErrorMenssage'
 
 export function Cadastro() {
+  const navigate = useNavigate();
+
   const schema = Yup.object().shape({
     name: Yup.string('Digite um nome válido').required('O nome é obrigatório'),
     email: Yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
@@ -38,13 +42,30 @@ export function Cadastro() {
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = async (data) => {
-    const res = await ApiCI4.post('cadastrar-usuario', {
-      name: data.name,
-      email: data.email,
-      password: data.password
-    })
-    console.log(res)
+  const onSubmit = async (clientData) => {
+    try {
+      const { status } = await ApiCI4.post(
+        'cadastrar-usuario',
+        {
+          name: clientData.name,
+          email: clientData.email,
+          password: clientData.password
+        },
+        { validateStatus: () => true }
+      )
+
+      if (status === 201 || status === 200) {
+        toast.success('Cadastro criado com sucesso')
+        navigate('/')
+      } else if (status === 409) {
+        toast.error('E-mail já cadastrado, faça login para continuar')
+      } else {
+        throw new Error()
+      }
+    } catch (err) {
+      toast.error('Falha no sistema! Tente novamente.')
+    }
+    console.log(clientData)
   }
 
   return (
