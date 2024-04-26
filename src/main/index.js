@@ -1,5 +1,5 @@
-import { app, shell, BrowserWindow, ipcMain, protocol, net } from 'electron'
-import { join } from 'path'
+import { app, shell, BrowserWindow, ipcMain, Notification } from 'electron'
+import path, { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
@@ -14,7 +14,7 @@ function createWindow() {
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false,
-      allowRunningInsecureContent: true
+      allowRunningInsecureContent: false
     }
   })
 
@@ -61,6 +61,18 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
+
+const ShowNotification = () => {
+  new Notification({
+    title: 'Aplicativo aberto',
+    body: 'O aplicativo foi aberto com sucesso!',
+    silent: false,
+    icon: path.join(__dirname, '../renderer/src/assets/lamp.png'),
+    timeoutType: 'default'
+  }).show()
+}
+
+app.whenReady().then(ShowNotification)
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

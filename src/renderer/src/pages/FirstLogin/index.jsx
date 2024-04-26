@@ -9,7 +9,7 @@ import {
   SignInLogin,
   TextLink,
   TitleText
-} from './styles'
+} from './styles.js'
 
 import icon from '../../assets/lamp.png'
 
@@ -25,11 +25,11 @@ import { useUser } from '../../hooks/UserContext.jsx'
 
 import { useNavigate } from 'react-router-dom'
 
-import { ApiCI4 } from '../../services/api'
+import { ApiCI4 } from '../../services/api.js'
 import { Link } from 'react-router-dom'
 import { ErrorMessage } from '../../components/ErrorMenssage/index.jsx'
 
-export function Login() {
+export function FirstLogin() {
   const { putUserData } = useUser()
   const navigate = useNavigate()
 
@@ -72,7 +72,7 @@ export function Login() {
   return (
     <Container1>
       <Container2>
-        <TitleText>Login</TitleText>
+        <TitleText>Faça login pela primeira vez</TitleText>
         <Container3>
           <Form noValidate onSubmit={handleSubmit(onSubmit)}>
             <Label>E-mail</Label>

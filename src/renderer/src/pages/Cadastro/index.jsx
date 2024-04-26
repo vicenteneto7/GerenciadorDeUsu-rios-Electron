@@ -13,9 +13,10 @@ import {
 
 import { toast } from 'react-toastify'
 
-import { useForm, useNavigate } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useNavigate } from 'react-router-dom'
 
 import { ApiCI4 } from '../../services/api'
 import { Link } from 'react-router-dom'
@@ -23,14 +24,14 @@ import { Button } from '../../components/Button'
 import { ErrorMessage } from '../../components/ErrorMenssage'
 
 export function Cadastro() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const schema = Yup.object().shape({
     name: Yup.string('Digite um nome válido').required('O nome é obrigatório'),
     email: Yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
     password: Yup.string('Digite uma senha válida').required('A senha é obrigatória'),
     confirmPassword: Yup.string()
-      .required('Digite a senha')
+      .required('A senha é obrigatória')
       .oneOf([Yup.ref('password')], 'As senhas devem ser iguais')
   })
 
@@ -56,7 +57,9 @@ export function Cadastro() {
 
       if (status === 201 || status === 200) {
         toast.success('Cadastro criado com sucesso')
-        navigate('/')
+        setTimeout(() => {
+          navigate('/first-login')
+        }, 1000)
       } else if (status === 409) {
         toast.error('E-mail já cadastrado, faça login para continuar')
       } else {
