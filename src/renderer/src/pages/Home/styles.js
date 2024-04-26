@@ -5,7 +5,18 @@ export const Container1 = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  flex-direction: column;
+
+  background-color: #8257E6;
+`
+export const Container2 = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
   justify-content: center;
+
+  background-color: #8257E6;
 `
 
 export const Table = styled.table`
@@ -24,3 +35,4 @@ export const Li = styled.li`
   width: 20rem;
   height: 10rem;
 `
+
