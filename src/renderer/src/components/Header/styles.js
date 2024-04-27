@@ -4,8 +4,8 @@ export const Container = styled.div`
   width: 100%;
   height: 6rem;
 
-  background-color: #fff;
-  box-shadow: 0.2rem 0.3rem 0.5rem rgba(0, 0, 0, 0.15);
+border-bottom: 2px groove #c4bcbd;
+background-color: #fff;
 
   display: flex;
   flex-direction: row;
@@ -17,7 +17,7 @@ export const ContainerUnique = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 2rem;
-  padding-right: 3rem;
+  margin-right: 3rem;
 `
 export const Line = styled.div`
   height: 4rem;
@@ -27,10 +27,17 @@ export const Line = styled.div`
 export const ContainerText = styled.div`
   display: flex;
   flex-direction: column;
+
+  width: 100%;
 `
 
 export const P = styled.p`
   color: #ac9c9c;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 `
 
 export const PageLink = styled.a`
@@ -43,7 +50,8 @@ export const PageLinkHome = styled.a`
   padding-left: 27rem;
   font-size: 2rem;
   line-height: 1.9rem;
-  color: #ac9c9c;
+  color: ${(props) => (props.isActive ? '#9758ab' : '#ac9c9c')};
+  font-weight: ${(props) => (props.isActive ? 'bold' : 'normal')};
 
   transition: 0.5 ease;
 
@@ -52,8 +60,6 @@ export const PageLinkHome = styled.a`
   &:hover {
     color: black;
   }
-
-  
 `
 
 export const Container3 = styled.div`
@@ -88,4 +94,13 @@ export const PageLinkExit = styled.a`
   &:active {
     opacity: 0.6;
   }
+`
+export const ContainerLeft = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  height: 100%;
+  width: 30%;
 `

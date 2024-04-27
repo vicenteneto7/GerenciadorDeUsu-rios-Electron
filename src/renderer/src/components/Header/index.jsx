@@ -2,35 +2,46 @@ import {
   Container,
   ContainerUnique,
   ContainerText,
-  PageLink,
   Img,
   Line,
   PageLinkExit,
   P,
   Container3,
-  PageLinkHome
+  PageLinkHome,
+  ContainerLeft
 } from './styles'
+import { useUser } from '../../hooks/UserContext'
 import Person from '../../assets/user.png'
-import { useNavigate } from 'react-router-dom'
-import { Container2 } from '../../pages/Home/styles'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export function Header() {
     const navigate = useNavigate()
+    const location = useLocation();
 
+    const { logout, userData } = useUser()
+
+    console.log(userData)
+
+    const LogoutUser = () => {
+        logout()
+        navigate('/login')
+    }
   return (
     <Container>
-        <PageLinkHome onClick={() => navigate('/')}>
+      <ContainerLeft>
+        <PageLinkHome isActive={location.pathname == '/'} onClick={() => navigate('/')}>
             Home
         </PageLinkHome>
+        </ContainerLeft>
       <ContainerUnique>   
         <Container3>
-        <Line></Line>
           <Img src={Person} alt="Logo-da-pessoa"></Img>
+          <Line></Line>
         </Container3>
         <ContainerText>
-          <P>Olá, Vicente</P>
+          <P>Olá, {userData.name}</P>
           <PageLinkExit>
-            <p>Sair</p>
+            <p onClick={LogoutUser}>Sair</p>
           </PageLinkExit>
         </ContainerText>
       </ContainerUnique>
