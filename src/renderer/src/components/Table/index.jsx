@@ -7,7 +7,7 @@ import { ApiCI4 } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 
 
-export function TableComponent({ users, setUsers, handleDelete }) {
+export function TableComponent({ users, handleDelete }) {
   const [edit, setEdit] = useState(null)
 
   const navigate = useNavigate()
@@ -54,5 +54,4 @@ export function TableComponent({ users, setUsers, handleDelete }) {
 TableComponent.propTypes = {
   users: PropTypes.object,
   handleDelete: PropTypes.func,
-
 }

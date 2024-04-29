@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { Button } from '../Button'
-
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -17,7 +15,6 @@ background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(130,87,230,1) 100%);
     flex-direction: column;
     gap: 20px;
     background-color: transparent;
-    width: 417px;
     height: max-content;
     border-radius: 10px;
     padding: 3rem;

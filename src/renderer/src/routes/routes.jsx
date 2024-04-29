@@ -13,7 +13,7 @@ const MyRouter = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastrar-usuario" element={<Cadastro />} />
       <Route path="/first-login" element={<FirstLogin />} />
-      <Route path="/users" element={<PrivateRoute component={Home} />} />
+      <Route path="/" element={<PrivateRoute component={Home} />} />
       <Route path="/editar-usuario" element={<PrivateRoute component={EditUser} />} />
 
     </Routes>

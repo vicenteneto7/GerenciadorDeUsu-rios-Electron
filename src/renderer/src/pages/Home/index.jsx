@@ -26,6 +26,8 @@ export function Home() {
     loadUsers()
   }, [])
 
+  console.log('usuarios', users)
+
   const handleDelete = async (id) => {
     await ApiCI4.delete(`/usuarios/${id}`)
       .then((data) => {
@@ -45,7 +47,7 @@ export function Home() {
   return (
     <Container1>
       <Container2>
-        <TableComponent setUsers={setUsers} users={users} handleDelete={handleDelete} />
+        <TableComponent users={users} handleDelete={handleDelete} />
       </Container2>
     </Container1>
   )
