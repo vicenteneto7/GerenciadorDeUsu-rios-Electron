@@ -26,11 +26,26 @@ export function Home() {
     loadUsers()
   }, [])
 
+  const handleDelete = async (id) => {
+    await ApiCI4.delete(`/usuarios/${id}`)
+      .then((data) => {
+        console.log(data)
+
+        console.log('deu certo aqui')
+        const newArray = users.filter((user) => user.id !== id)
+        console.log(newArray, 'erro')
+        setUsers(newArray)
+      })
+      .catch((error) => {
+        console.log('erro ao deletar, erro:', error)
+      })
+  }
+
+
   return (
     <Container1>
-      <Header />
       <Container2>
-        <TableComponent users={users} />
+        <TableComponent setUsers={setUsers} users={users} handleDelete={handleDelete} />
       </Container2>
     </Container1>
   )

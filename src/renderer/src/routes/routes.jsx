@@ -5,6 +5,7 @@ import { Cadastro } from '../pages/Cadastro/index.jsx'
 import { Home } from '../pages/Home/index.jsx'
 import PrivateRoute from './private-routes.jsx'
 import { FirstLogin } from '../pages/FirstLogin/index.jsx'
+import { EditUser } from '../components/EditUser/index.jsx'
 
 const MyRouter = () => {
   return (
@@ -12,7 +13,9 @@ const MyRouter = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastrar-usuario" element={<Cadastro />} />
       <Route path="/first-login" element={<FirstLogin />} />
-      <Route path="/" element={<PrivateRoute component={Home} />} />
+      <Route path="/users" element={<PrivateRoute component={Home} />} />
+      <Route path="/editar-usuario" element={<PrivateRoute component={EditUser} />} />
+
     </Routes>
   )
 }

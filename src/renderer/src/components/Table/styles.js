@@ -22,6 +22,8 @@ export const Tr = styled.tr`
 export const Th = styled.th`
   text-align: start;
   border-bottom: inset;
+
+  padding-bottom: 1.8rem;
  
   font-size: 1.3rem;
   width: ${(props) => (props.width ? props.width : 'auto')};
@@ -35,9 +37,19 @@ export const Th = styled.th`
 `
 
 export const Td = styled.td`
+  cursor: pointer;
+
   padding-top: 2.5rem;
   text-align: ${(props) => (props.alignCenter ? 'center' : 'start')};
   width: ${(props) => (props.width ? props.width : 'auto')};
+
+  &:hover{
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
 
   @media (max-width: 500px) {
     ${(props) => props.onlyWeb && 'display: none'}

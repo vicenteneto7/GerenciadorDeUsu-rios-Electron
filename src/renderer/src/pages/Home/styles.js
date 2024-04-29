@@ -10,7 +10,7 @@ export const Container1 = styled.div`
   background-color: #8257E6;
 `
 export const Container2 = styled.div`
-  height: 100%;
+  height: 90%;
   width: 100%;
   display: flex;
   align-items: center;

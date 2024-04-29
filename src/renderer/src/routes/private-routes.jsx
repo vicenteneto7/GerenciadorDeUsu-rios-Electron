@@ -2,6 +2,7 @@
 import { Navigate } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
+import { Header } from '../components/Header'
 
 function PrivateRoute({ component: Component, ...rest }) {
   const user = JSON.parse(localStorage.getItem('u'))
@@ -12,6 +13,7 @@ function PrivateRoute({ component: Component, ...rest }) {
 
   return (
     <>
+    <Header />
       {!rest}
       <Component />
     </>

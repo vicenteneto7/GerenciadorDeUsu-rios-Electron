@@ -27,8 +27,8 @@ export function Cadastro() {
   const navigate = useNavigate()
 
   const schema = Yup.object().shape({
-    name: Yup.string('Digite um nome válido').required('O nome é obrigatório'),
-    email: Yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
+    name: Yup.string('Digie um nome válido').required('O nome é obrigatório'),
+    email: Yup.string().email('Dtigite um e-mail válido').required('O e-mail é obrigatório'),
     password: Yup.string('Digite uma senha válida').required('A senha é obrigatória'),
     confirmPassword: Yup.string()
       .required('A senha é obrigatória')
@@ -86,7 +86,7 @@ export function Cadastro() {
             />
             <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
-            <Label>Email</Label>
+            <Label>E-mail</Label>
             <InputText
               {...register('email', { required: true })}
               error={errors.email?.message}
